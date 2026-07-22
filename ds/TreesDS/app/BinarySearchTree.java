@@ -1,6 +1,8 @@
-package ds.app;
+package TreesDS.app;
 
-import ds.tree.Node;
+import TreesDS.tree.Node;
+import java.util.List;
+import java.util.ArrayList;
 
 //import java.util.Scanner;
 import java.util.Queue;
@@ -193,12 +195,12 @@ public class BinarySearchTree {
     }
     
     public static void main(String[] args){
-        int[] insertionValues = {50, 30, 70, 20, 40, 60, 80};
-        BinarySearchTree BT = new BinarySearchTree();
-        for(int x:insertionValues){
-            BT.tree = BT.insert(BT.tree, x);
-        }
-        BT.inOrder(BT.tree);
+        // int[] insertionValues = {50, 30, 70, 20, 40, 60, 80};
+        // BinarySearchTree BT = new BinarySearchTree();
+        // for(int x:insertionValues){
+        //     BT.tree = BT.insert(BT.tree, x);
+        // }
+        // BT.inOrder(BT.tree);
         
     }
 }

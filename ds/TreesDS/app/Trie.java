@@ -1,6 +1,6 @@
-package ds.app;
+package TreesDS.app;
 
-import ds.tree.TrieNode;
+import TreesDS.tree.TrieNode;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -87,28 +87,28 @@ public class Trie {
 
     }
     public static void main(String[] args){
-        Trie trie = new Trie();
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        for(int i = 0; i < n; i++){
-            String word = sc.next();
-            trie.insert(word);
-        }
-        System.out.println("All words in the Trie:");
-        trie.getAllWords(trie.root).forEach(System.out::println);
-        System.out.println("Enter a word to search:");
-        String searchWord = sc.next();
-        if(trie.search(searchWord)){
-            System.out.println("Word found.");
-        } else {
-            System.out.println("Word not found.");
-        }
-        System.out.println("Enter a word to delete:");
-        String deleteWord = sc.next();
-        trie.delete(deleteWord);
-        System.out.println("All words in the Trie after deletion:");
-        trie.getAllWords(trie.root).forEach(System.out::println);
+        // Trie trie = new Trie();
+        // Scanner sc = new Scanner(System.in);
+        // int n = sc.nextInt();
+        // for(int i = 0; i < n; i++){
+        //     String word = sc.next();
+        //     trie.insert(word);
+        // }
+        // System.out.println("All words in the Trie:");
+        // trie.getAllWords(trie.root).forEach(System.out::println);
+        // System.out.println("Enter a word to search:");
+        // String searchWord = sc.next();
+        // if(trie.search(searchWord)){
+        //     System.out.println("Word found.");
+        // } else {
+        //     System.out.println("Word not found.");
+        // }
+        // System.out.println("Enter a word to delete:");
+        // String deleteWord = sc.next();
+        // trie.delete(deleteWord);
+        // System.out.println("All words in the Trie after deletion:");
+        // trie.getAllWords(trie.root).forEach(System.out::println);
         
-        sc.close();
+        // sc.close();
     }
 }
