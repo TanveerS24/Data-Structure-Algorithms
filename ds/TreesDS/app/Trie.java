@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+@SuppressWarnings("unused")
 public class Trie {
     private TrieNode root;
 

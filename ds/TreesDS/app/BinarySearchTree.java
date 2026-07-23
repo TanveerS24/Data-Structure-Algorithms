@@ -10,6 +10,7 @@ import java.util.ArrayDeque;
 
 public class BinarySearchTree {
     
+    @SuppressWarnings("unused")
     private Node tree;
 
     
