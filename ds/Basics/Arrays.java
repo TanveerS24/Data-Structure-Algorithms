@@ -3,7 +3,7 @@ package Basics;
 import java.util.Scanner;
 
 @SuppressWarnings("unused")
-public class ReverseArray{
+public class Arrays{
 
     private void reverse(int[] arr){
         int n = arr.length;
@@ -114,6 +114,121 @@ public class ReverseArray{
         return -1;
     }
 
+    private int jumpSearch(int[] arr,int num){
+        sorterHelper(arr);
+        int n = arr.length;
+        int jump = (int)Math.sqrt(n);
+        int i=0;
+        int prev = 0;
+        while(i<n){
+            if(arr[i]==num){
+                return i;
+            }
+            if(arr[i]<num){
+                break;
+            }
+            prev = i;
+            i += jump;
+        }
+
+        for(int j=prev+1;j<i && j<n; j++){
+            if(arr[j] == num){
+                return j;
+            }
+        }
+
+        return -1;
+    }
+
+    private int[] prefixSum(int[] arr){
+        int n = arr.length;
+        int[] prefix = new int[n];
+
+        int sum = 0;
+
+        for(int i=0;i<n;i++){
+            sum += arr[i];
+            prefix [i] = sum;
+        }
+        traverse(prefix);
+        return prefix;
+    }
+
+    private int[] slidingWindow(int[] arr, int k){
+        int n = arr.length;
+        int[] window = new int[n];
+        int sum = 0;
+
+        for(int i=0;i<n;i++){
+            sum+= arr[i];
+            if(i>=k){
+                sum -= arr[i-k];
+            }
+            window[i] = sum;
+        }
+
+        return window;
+
+    }
+
+    //kadane algorithm
+    private int maxSubArray(int[] arr){
+        int currentSum = arr[0];
+        int maxSum = arr[0];
+
+        for(int i=1;i<arr.length;i++){
+            currentSum = Math.max(arr[i], currentSum+arr[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+    }
+
+    //Dutch national Flag
+    private void dutchNationalFlag(int[] arr,int a,int b,int c){
+        int low =0;
+        int mid =0;
+        int high = arr.length-1;
+
+        while(mid<=high){
+            if(arr[mid] == a){
+                swap(arr,low,mid);
+                low++;
+                mid++;
+            }else if (arr[mid]==b){
+                mid++;
+            }
+            else{
+                swap(arr,mid,high);
+                high--;
+            }
+        }
+    }
+
+    private void swap(int[] arr,int x,int y){
+        int temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+
+    //Moore's Voting
+    private int mooreVoting(int[] arr){
+        int current = 0;
+        int count =0;
+
+        for(int num:arr){
+            if(count == 0){
+                current = num;
+            }
+            if(current ==num){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        return current;
+    }
+
     private void sorterHelper(int[] arr){
         if(!isSorted(arr)){
             sort(arr);
@@ -137,21 +252,41 @@ public class ReverseArray{
         for(int i =0;i<n;i++){
             for(int j = i;j<n;j++){
                 if(arr[i]>arr[j]){
-                    int temp = arr[i];
-                    arr [i] = arr[j];
-                    arr [j] = temp;
+                    swap(arr, i, j);
                 }
             }
         }
     }
+
+    private void mergeIntervals(int[][] arr){
+
+    }
+
+    private void sort(int[][] arr){
+        int n = arr.length;
+        for(int i =0;i<n;i++){
+            for(int j = i;j<n;j++){
+                if(arr[i][0]>arr[j][0]){
+                    swap(arr, i, j);
+                }
+            }
+        }
+    }
+
+    private void swap(int[][] arr, int x,int y){
+        int[] temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
     public static void main(String[] args){
-        ReverseArray ra = new ReverseArray();
+        Arrays ra = new Arrays();
         int n = 10;
 
-        int[] arr = {1,2,4,3,5,6,7,8,9,10};
+        int[] arr = {1,2,4,3};
 
-        ra.sort(arr);
-        ra.traverse(arr);
-        
+        // ra.sort(arr);
+        // ra.traverse(arr);
+
+        ra.prefixSum(arr);        
     }
 }
