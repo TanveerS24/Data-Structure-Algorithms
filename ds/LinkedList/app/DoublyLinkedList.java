@@ -171,6 +171,24 @@ public class DoublyLinkedList {
         return false;
     }
 
+    public DoubleNode search(DoubleNode node){
+        if(isEmpty()){
+            emptyMessage();
+            return null;
+        }
+        
+        DoubleNode current = head;
+
+        while (current != null) {
+            if (current == node) {
+                return current;
+            }
+            current = current.getNext();
+        }
+
+        return null;
+    }
+
     public int countNodes(){
         int count = 0;
 
@@ -415,6 +433,23 @@ public class DoublyLinkedList {
         System.out.println("Invalid Position");
     }
 
+    public void moveToFront(int data){
+        DoubleNode node = new DoubleNode(data);
+        node = search(node);
+        if(node==null){
+            return;
+        }
+
+        DoubleNode temp = node.getPrev();
+
+        temp.setNext(node.getNext());
+        if(node.getNext()!=null){
+            node.getNext().setPrev(temp);
+        }
+        node.setPrev(null);
+        node.setNext(head);
+        head = node;
+    }
     public static void main(String[] args) {
 
         // DoublyLinkedList ll = new DoublyLinkedList();
