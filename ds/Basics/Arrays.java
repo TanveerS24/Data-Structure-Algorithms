@@ -1,5 +1,3 @@
-package Basics;
-
 import java.util.Scanner;
 
 @SuppressWarnings("unused")
