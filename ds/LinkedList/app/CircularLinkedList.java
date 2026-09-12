@@ -4,6 +4,7 @@ import LinkedList.Node.DoubleNode;
 
 public class CircularLinkedList {
 
+    @SuppressWarnings("unused")
     private DoubleNode head;
 
     //public void insertAtBeginning(int data)
